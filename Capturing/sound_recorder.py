@@ -8,7 +8,7 @@ FORMAT = pyaudio.paInt16    # 8
 CHANNELS = 1
 RATE = 44100
 CHUNK = 1024
-RECORD_SECONDS = 2
+RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = "file.wav"
 WAVE_LIKE_FILENAME = "file_gen.wav"
 
@@ -54,6 +54,8 @@ for f in frames:
     ARRAY_LIKE_DATA.append(t)
 
 ARRAY_LIKE_DATA = np.array(ARRAY_LIKE_DATA)
+# Check amplification
+ARRAY_LIKE_DATA *= 100
 print 'Data successfully converted to numpy array, shape:', ARRAY_LIKE_DATA.shape
 
 # Pack numpy array to structure (wav format)
